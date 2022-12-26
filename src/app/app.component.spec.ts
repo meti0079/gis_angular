@@ -19,7 +19,6 @@ describe('AppComponent', () => {
   it(`should have as title 'gis'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('gis');
   });
 
   it('should render title', () => {

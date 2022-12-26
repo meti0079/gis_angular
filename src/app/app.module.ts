@@ -1,16 +1,33 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+  import { DoBootstrap, Injector, NgModule } from '@angular/core';
+  import { createCustomElement } from '@angular/elements';
+  import { BrowserModule } from '@angular/platform-browser';
+  import {CustomReactComponentWrapperComponent} from "./CustomReactComponentWrapper";
+  import { AppComponent } from './app.component';
 
-import { AppComponent } from './app.component';
+  @NgModule({
+    declarations: [
+      AppComponent,
+      CustomReactComponentWrapperComponent,
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+    ],
+    imports: [
+      BrowserModule
+    ],
+    providers: [],
+    entryComponents: [
+      CustomReactComponentWrapperComponent,
+      // AppComponent
+    ],
+    bootstrap: [AppComponent]
+  })
+
+
+  // export class AppModule implements DoBootstrap {
+  //   constructor(private injector: Injector) {
+  //     const webComponent = createCustomElement(AppComponent, { injector: this.injector });
+  //     customElements.define('angular-component', webComponent);
+  //   }
+  //
+  //   ngDoBootstrap() { }
+  // }
+  export class AppModule {}
